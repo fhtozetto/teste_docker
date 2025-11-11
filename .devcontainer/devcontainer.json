@@ -13,37 +13,9 @@
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "zsh",
-        "terminal.integrated.fontFamily": "MesloLGS NF"
+        "terminal.integrated.fontFamily": "'JetBrains Mono', -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif"
       }
     }
   }
 }
 
-
-
-// {
-//   "name": "Python UV",
-//   "dockerComposeFile": "../docker-compose.yml",
-//   "service": "app",
-//   "workspaceFolder": "/app",
-//   "remoteUser": "root",
-  
-//   "features": {
-//     "ghcr.io/devcontainers/features/git:1": {}
-//   },
-  
-//   "mounts": [
-//     "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
-//     "source=${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached"
-//   ],
-  
-//   "customizations": {
-//     "vscode": {
-//       "extensions": [
-//         "ms-python.python",
-//         "ms-python.vscode-pylance",
-//         "github.vscode-pull-request-github"
-//       ]
-//     }
-//   }
-// }
