@@ -1,0 +1,72 @@
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app:cached
+      - uv-cache:/root/.cache/uv
+      - ${USERPROFILE}/.ssh:/root/.ssh-host
+      - ${USERPROFILE}/.gitconfig:/root/.gitconfig
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: /bin/bash -c "cp -r /root/.ssh-host /root/.ssh && chmod 700 /root/.ssh && chmod 600 /root/.ssh/id_* 2>/dev/null || true && chmod 644 /root/.ssh/*.pub 2>/dev/null || true && chmod 644 /root/.ssh/config 2>/dev/null || true && sleep infinity"
+
+volumes:
+  uv-cache:
+
+
+# services:
+#   app:
+#     build: .
+#     volumes:
+#       - .:/app:cached
+#       - uv-cache:/root/.cache/uv
+#       - ${USERPROFILE}/.ssh:/root/.ssh:ro
+#       - ${USERPROFILE}/.gitconfig:/root/.gitconfig:ro
+#     ports:
+#       - "8000:8000"
+#     environment:
+#       - PYTHONUNBUFFERED=1
+#     command: sleep infinity
+
+# volumes:
+#   uv-cache:
+
+
+# Opção 2
+# services:
+#   app:
+#     build: .
+#     volumes:
+#       - .:/app:cached
+#       - uv-cache:/root/.cache/uv
+#       - ssh-keys:/root/.ssh
+#       - gitconfig:/root/.gitconfig
+#     ports:
+#       - "8000:8000"
+#     environment:
+#       - PYTHONUNBUFFERED=1
+#     command: sleep infinity
+
+# volumes:
+#   uv-cache:
+#   ssh-keys:
+#   gitconfig:
+
+# Opção 1
+# services:
+#   app:
+#     build: .
+#     volumes:
+#       - .:/app:cached
+#       - uv-cache:/root/.cache/uv
+#     ports:
+#       - "8000:8000"
+#     environment:
+#       - PYTHONUNBUFFERED=1
+#     # Sobrescrever o CMD do Dockerfile
+#     command: sleep infinity
+
+# volumes:
+#   uv-cache:
